@@ -31,10 +31,11 @@
         If you can guess my nickname we can share a few memories
     </div>
     <br>
-
-    <div class="ui input">
-        <input type="password" placeholder="Guess ;)">
-    </div>
+    <g:form controller="admin" action="guess">
+        <div class="ui input">
+            <input type="text" placeholder="Guess ;)" name="phrase" autofocus>
+        </div>
+    </g:form>
 </div>
 </body>
 </html>
