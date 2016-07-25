@@ -10,11 +10,11 @@ class AdminController {
   }
 
   def guess() {
-    String phrase = params.phrase.toLowerCase()
+    String phrase = params.phrase?.toLowerCase()
     FailedPhrases failedPhrase = FailedPhrases.findByName(phrase)
     def allowedPhrases = AllowedPhrases.findAll().name
-    if (allowedPhrases.contains(phrase)) {
-      render(view: '/images')
+    if (allowedPhrases?.contains(phrase)) {
+      render(view: '/imageDisplay')
     } else {
       if (!failedPhrase) {
         failedPhrase = new FailedPhrases(name: phrase).save()

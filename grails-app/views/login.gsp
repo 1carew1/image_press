@@ -8,8 +8,8 @@
 <%@ page import="configurations.Configuration" contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="Semantic-UI/dist/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="css/mainPage.css">
+    <link rel="stylesheet" href="${resource(dir: 'Semantic-UI/dist', file: 'semantic.min.css')}" type="text/css">
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'mainPage.css')}" type="text/css">
     <script src="Semantic-UI/dist/semantic.min.js"></script>
     <link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
