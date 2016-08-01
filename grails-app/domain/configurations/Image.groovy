@@ -15,7 +15,8 @@ package configurations
  */
 class Image {
   String fileLocation
-  ArrayList<SpecialEvent> events
+
+  static hasMany = [events : SpecialEvent]
 
   static constraints = {
     fileLocation nullable: false, unique: true

@@ -5,7 +5,7 @@
   Time: 21:48
 --%>
 
-<%@ page import="java.nio.file.Paths; java.nio.file.Files; org.apache.catalina.util.Base64; configurations.Configuration" contentType="text/html;charset=UTF-8" %>
+<%@ page import="image.ImageUtils; java.nio.file.Paths; java.nio.file.Files; org.apache.catalina.util.Base64; configurations.Configuration" contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'images.css')}" type="text/css">
@@ -22,27 +22,11 @@
     </title>
 </head>
 
-<%
-    def obtainImage = { path ->
-        String imageString = null
-        try {
-            imageString = new String(Base64.encode(Files.readAllBytes(Paths.get(path))))
-        } catch (IOException e) {
-            e.printStackTrace()
-        }
-        if (imageString == null) {
-            imageString = ''
-        }
-        return imageString;
-    }
-%>
-
 <body>
-<g:set var="path" value="${new File("${Configuration.findByActive(true).imageDirectory}")}"/>
-<g:set var="imageContainingList" value="${path?.listFiles()}"/>
+<g:set var="imageContainingList" value="${image.ImageUtils.todaysPhotos()}"/>
 <div class="photobanner">
     <g:each in="${imageContainingList}" var="oneRowObject">
-        <img src="data:image/jpeg;base64,${obtainImage(oneRowObject?.absolutePath)}"/>
+        <img src="data:image/jpeg;base64,${image.ImageUtils.imageToString(oneRowObject)}"/>
     </g:each>
 </div>
 </body>

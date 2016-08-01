@@ -12,7 +12,7 @@
     -o-transition: all 0.5s ease;
     -ms-transition: all 0.5s ease;
     transition: all 0.5s ease;
-    white-space:nowrap;
+    white-space: nowrap;
 }
 
 .photobanner img:hover {
@@ -26,4 +26,9 @@
     -webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.thumbNail {
+    width: 120px;
+    height: 90px;
 }

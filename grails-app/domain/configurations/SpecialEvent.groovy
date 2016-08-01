@@ -1,5 +1,7 @@
 package configurations
 
+import groovy.time.TimeCategory
+
 class SpecialEvent {
 
   String name
@@ -28,5 +30,23 @@ class SpecialEvent {
 //      }
 //      return pass
 //    }
+  }
+
+  Integer getYears() {
+    int yea = 0l
+    def today = new Date()
+    use(TimeCategory) {
+      def duration = today - date
+      yea = duration.years
+    }
+    return yea
+  }
+
+  static transients = ['years']
+
+
+  @Override
+  public String toString() {
+    return name
   }
 }

@@ -24,7 +24,7 @@
     </title>
 </head>
 <body>
-    <uploadr:add name="mySecondUploadr" path="${path}" height="50px"
+    <uploadr:add name="mySecondUploadr" path="${configurations.Configuration.findByActive(true).imageDirectory}" height="50px"
                  allowedExtensions="jpg,png,gif" direction="up" maxVisible="5" maxSize="204800000"
                  noSound="true" unsupported="${createLink(plugin: 'uploadr', controller: 'upload', action: 'warning')}">
     </uploadr:add>
