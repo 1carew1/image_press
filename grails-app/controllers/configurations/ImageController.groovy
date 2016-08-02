@@ -81,7 +81,10 @@ class ImageController {
       notFound()
       return
     }
-
+    File image = new File(imageInstance.fileLocation)
+    if (image.exists()) {
+      image.delete()
+    }
     imageInstance.delete flush: true
 
     request.withFormat {

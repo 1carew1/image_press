@@ -36,6 +36,11 @@
             <input type="text" placeholder="Guess ;)" name="phrase" autofocus>
         </div>
     </g:form>
+    <g:if test="${flash.message}">
+        <div class="ui warning message" style="width: 180px">
+            ${flash.message}....tut tut tut
+        </div>
+    </g:if>
 </div>
 </body>
 </html>

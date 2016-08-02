@@ -23,10 +23,11 @@ class AdminController {
         failedPhrase.save()
       }
       if (failedPhrase) {
-        render(phrase + ' is not correct and has been tried ' + failedPhrase.wrongCounter + ' times before')
+        flash.message = phrase + ' is not correct and has been tried ' + failedPhrase.wrongCounter + ' times before'
       } else {
-        render('At least enter something')
+        flash.message = 'At least enter something'
       }
+      redirect(uri: '/')
     }
   }
 }

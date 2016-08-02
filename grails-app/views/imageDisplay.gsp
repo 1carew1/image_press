@@ -22,8 +22,17 @@
     </title>
 </head>
 
-<body>
+
+<body background="${assetPath(src: 'background.jpg')}" onload="location.href = '#loginScreen'">
 <g:set var="imageContainingList" value="${image.ImageUtils.todaysPhotos()}"/>
+<header class="main-header" role="banner">
+    <div class="box">
+        Happy Birthday
+    </div>
+</header>
+<div id="loginScreen"><a href="#" class="cancel">&times;</a>
+    Hey Pet I wasn't really sure what to get you for your birthday so hopefully you like this
+</div>
 <div class="photobanner">
     <g:each in="${imageContainingList}" var="oneRowObject">
         <img src="data:image/jpeg;base64,${image.ImageUtils.imageToString(oneRowObject)}"/>
