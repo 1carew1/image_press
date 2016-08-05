@@ -1,11 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: colmcarew
-  Date: 21/07/16
-  Time: 19:07
---%>
-
-<%@ page import="org.apache.catalina.util.Base64; java.nio.file.Files; java.nio.file.Paths; org.apache.commons.lang.RandomStringUtils; configurations.Configuration" contentType="text/html;charset=UTF-8" %>
+<%@ page import="configurations.Configuration" contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <asset:javascript src="uploadr.manifest.js"/>
@@ -23,11 +16,12 @@
         </g:else>
     </title>
 </head>
+
 <body>
-    <uploadr:add name="mySecondUploadr" path="${configurations.Configuration.findByActive(true).imageDirectory}" height="50px"
-                 allowedExtensions="jpg,jpeg,png,gif" direction="up" maxVisible="5" maxSize="204800000"
-                 noSound="true" unsupported="${createLink(plugin: 'uploadr', controller: 'upload', action: 'warning')}">
-    </uploadr:add>
+<uploadr:add name="mySecondUploadr" path="${Configuration.findByActive(true).imageDirectory}" height="50px"
+             allowedExtensions="jpg,jpeg,png,gif" direction="up" maxVisible="5" maxSize="204800000"
+             noSound="true" unsupported="${createLink(plugin: 'uploadr', controller: 'upload', action: 'warning')}">
+</uploadr:add>
 
 </body>
 </html>

@@ -39,10 +39,9 @@
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
                 <td><g:link action="show"
-                            id="${imageInstance.id}"><img
-                            src="data:image/jpeg;base64,${image.ImageUtils.imageToString(imageInstance?.fileLocation)}"
+                                  id="${imageInstance.id}"><img
+                            src="data:image/jpeg;base64,${ImageUtils.imageToString(imageInstance?.fileLocation)}"
                             class="thumbNail"/></g:link></td>
-
             </tr>
         </g:each>
         </tbody>
