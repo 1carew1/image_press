@@ -36,14 +36,7 @@ class ImageUtils {
     }
 
     public static List<String> todaysPhotos() {
-        def today = new Date()
-        def todaysEvent = SpecialEvent.findAll().find { event ->
-            (event.date.month == today.month
-                    && event.date.date == today.date)
-        }
-        if (!todaysEvent) {
-            todaysEvent = SpecialEvent.findByName('Anniversary')
-        }
+        def todaysEvent = SpecialEvent.findTodaysEvent()
         def allImages = Image.findAll().findAll { image -> image.events.contains(todaysEvent) }.fileLocation
         return allImages
     }

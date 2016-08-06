@@ -6,15 +6,17 @@ class SpecialEvent {
 
   String name
   String message
+  String specialMessage
   String title
   Date date
   boolean active
 
   static constraints = {
     name unique: true, nullable: false
-    message nullable: false
+    message nullable: true
     title nullable: false
     date nullable: false, unique: true
+    specialMessage nullable: true
 //        validator: { val, obj ->
 //      boolean pass = true
 //      def allEvents = findAll()
@@ -44,6 +46,17 @@ class SpecialEvent {
 
   static transients = ['years']
 
+  public static SpecialEvent findTodaysEvent() {
+    def today = new Date()
+    def todaysEvent = findAll().find { event ->
+      (event.date.month == today.month
+          && event.date.date == today.date)
+    }
+    if (!todaysEvent) {
+      todaysEvent = findByName('Anniversary')
+    }
+    return todaysEvent
+  }
 
   @Override
   public String toString() {

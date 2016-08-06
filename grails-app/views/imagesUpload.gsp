@@ -1,4 +1,5 @@
 <%@ page import="configurations.Configuration" contentType="text/html;charset=UTF-8" %>
+<g:set var="config" value="${Configuration.findByActive(true)}"/>
 <html>
 <head>
     <asset:javascript src="uploadr.manifest.js"/>
@@ -6,20 +7,18 @@
     <link rel="stylesheet" type="text/css" href="css/images.css">
     <link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <g:set var="activeConfig" value="${Configuration.findByActive(true)}"/>
     <title>
-        <g:if test="${activeConfig}">
-            ${activeConfig.titleOfPage}
-        </g:if>
-        <g:else>
-            Colm's Image Press
-        </g:else>
+        Upload
     </title>
 </head>
 
 <body>
-<uploadr:add name="mySecondUploadr" path="${Configuration.findByActive(true).imageDirectory}" height="50px"
-             allowedExtensions="jpg,jpeg,png,gif" direction="up" maxVisible="5" maxSize="204800000"
+<a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
+<br>
+Uploading files to ${config?.imageDirectory}
+<br>
+<uploadr:add name="mySecondUploadr" path="${config?.imageDirectory}" height="50px"
+             allowedExtensions="jpg,jpeg,png,gif,tiff,bmp,img,jpe," direction="up" maxVisible="5" maxSize="204800000"
              noSound="true" unsupported="${createLink(plugin: 'uploadr', controller: 'upload', action: 'warning')}">
 </uploadr:add>
 

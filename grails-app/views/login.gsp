@@ -5,7 +5,8 @@
   Time: 21:48
 --%>
 
-<%@ page import="configurations.Configuration" contentType="text/html;charset=UTF-8" %>
+<%@ page import="configurations.SpecialEvent; configurations.Configuration" contentType="text/html;charset=UTF-8" %>
+<g:set var="todaysEvent" value="${SpecialEvent.findTodaysEvent()}"/>
 <html>
 <head>
     <link rel="stylesheet" href="${resource(dir: 'Semantic-UI/dist', file: 'semantic.min.css')}" type="text/css">
@@ -15,20 +16,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <g:set var="activeConfig" value="${Configuration.findByActive(true)}"/>
     <title>
-        <g:if test="${activeConfig}">
-            ${activeConfig.titleOfPage}
-        </g:if>
-        <g:else>
-            Colm's Image Press
-        </g:else>
+        ${todaysEvent.title}
     </title>
 </head>
 
 <body>
 <div class="pageCenter">
     <div class="ui pointing below label" style="width: 180px">
-        So pet you're 20 now and we're together over a year.
-        If you can guess my nickname we can share a few memories
+        ${todaysEvent?.message}
     </div>
     <br>
     <g:form controller="admin" action="guess">

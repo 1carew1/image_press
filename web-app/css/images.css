@@ -1,7 +1,6 @@
 /*photobanner*/
 
 .photobanner {
-    height: 233px;
     margin: auto;
     width: 50%;
 }
@@ -85,4 +84,8 @@
     text-decoration: none;
     text-align: center;
     font-weight: bold;
+}
+
+.center {
+    text-align: center;
 }
